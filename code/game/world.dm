@@ -478,20 +478,19 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/Reboot(reason, ping)
 	if(ping)
-		send2chat("GAME: @here", "game") //Don't forget change id channel and id role for you server!!!!!
+		send2chat("Round End: @here", "game") //Don't forget change id channel and id role for you server!!!!!
 		var/list/msg = list()
 
-		msg += "Next Map: Site 53"
+		msg += "Map: Site 53"
 
 		if(ticker.mode)
 			msg += "Game Mode: [ticker.mode.name]"
-			msg += "Round End State: [ticker.mode.round_finished]"
 
 		if(length(GLOB.clients))
 			msg += "Players: [length(GLOB.clients)]"
 
 		if(length(msg))
-			send2chat("GAME: " + msg.Join(" | "), "game") //TOO!
+			send2chat("Info: " + msg.Join(" | "), "game") //TOO!
 	/*spawn(0)
 		sound_to(world, sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')))// random end sounds!! - LastyBatsy
 
